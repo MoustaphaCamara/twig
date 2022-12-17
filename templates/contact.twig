@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+{% import 'form.twig' as form %}
+{% block head %}
+    <title>Contact me</title>
+{% endblock %}
+
+{% block content %}
+<p>Envoyez une lettre à MAAAAAARC Airlines {{ current_page }} </p>
+<form action="?p=contact" method="post">
+    {# <div class="form-group">
+        <label for="name">Votre nom</label>
+        <input type="text" name="name" id="name" class="form-control">
+    </div>     #}
+    {# macros --> form.twig, {% macro input(parameters) endmacro %} #}
+     {{ form.input('name','Votre nom') }}
+     {{ form.input('email','Votre mail', {class:'col'}) }}
+     {{ form.input('tel','Votre numéro', {class:'col'}) }}
+     {{ form.textarea('message','Votre message') }}
+     <br>
+     <button type="submit" class="btn btn-primary">Envoyer</button>
+     
+</form>
+
+{% endblock %}
+

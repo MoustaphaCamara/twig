@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+{% block head %}
+<title>Accueil</title>
+{% endblock %}
+{% block content %}
+<h1>Page d'accueil</h1>
+<h2>Les derniers articles :</h2>
+<div class="row">
+{% for post in posts %}
+  <div class="col-xs">
+    
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title"> {{loop.index ~ " - " ~ post.author}}</h4>
+        {# modulo ou is divisibleby, isconstant, iseven, isiterable, isnull... check docu "Tests" de twig #}
+        <p class="card-text">
+          {{ markdown(post.message) }}
+        </p>
+        <a href="#">Lire l'article</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+
+  {% endblock %}
+
